@@ -5,11 +5,9 @@ import Header from "./components/Header";
 import Home from "./pages/home/Home";
 import SignUp from "./pages/sign-up/SignUp";
 import Login from "./pages/login/Login";
+import PrivateRoute from "./routes/PrivateRoute";
 
 const App = () => {
-    const token = useSelector((state) => state.Auth.token);
-     console.log(token);
-
   return (
     <React.Fragment>
       <Header/>
@@ -17,6 +15,13 @@ const App = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/sign-up" element={<SignUp/>}/>
         <Route path="/login" element={<Login/>}/>
+        {/* 인증이 필요한 컴포넌트는 아래처럼 PrivateRoute 컴포넌트 사용!*/}
+        <Route
+          path="/add-board"
+          element={
+            <PrivateRoute path="/add-board" component={AddMagazine}/>
+          }
+        />
       </Routes>
     </React.Fragment>
   )
