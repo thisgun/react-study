@@ -1,10 +1,12 @@
 {
-  "name": "gnu-app",
+  "name": "gnu2-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@headlessui/react": "^1.7.2",
+    "@heroicons/react": "^1.0.6",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
     "@testing-library/jest-dom": "^5.16.5",
@@ -12,6 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "html-react-parser": "^3.0.4",
     "http-proxy-middleware": "^2.0.6",
     "jwt-decode": "^3.1.2",
     "momment": "^0.0.1",
@@ -21,9 +24,13 @@
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
+    "react-toast-notifications": "^2.5.1",
     "react-toastify": "^9.0.8",
+    "react-toastr": "^3.0.0",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
+    "tailwindcss": "^3.1.8",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
@@ -50,5 +57,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "postcss": "^8.4.17",
+    "redux-devtools-extension": "^2.13.9",
+    "tailwindcss": "^3.0.8"
   }
 }
