@@ -5,7 +5,7 @@ import "./home.scss";
 
 import UserSideview from "../../components/layouts/UserSideview";
 
-import axios from "axios";
+import axiosInstance from "../../utils/axios";
 
 const Home = () => {
   const [latests, setlatests] = useState(null);
@@ -20,7 +20,7 @@ const Home = () => {
         setlatests(null);
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
-        const response = await axios.get(`/api/main/`);
+        const response = await axiosInstance.get(`/api/main/`);
         setlatests(response.data); // 데이터는 response.data 안에 들어있습니다.
       } catch (e) {
         setError(e);
@@ -47,8 +47,8 @@ const Home = () => {
                 </Link>
               </h2>
               <ul>
-                {board[1].latest.map((post) => (
-                  <li>
+                {board[1].latest.map((post, index) => (
+                  <li key={index}>
                     {post.icon_secret && (
                       <i className="fa fa-lock" aria-hidden="true"></i>
                     )}
