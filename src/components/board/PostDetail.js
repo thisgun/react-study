@@ -16,11 +16,7 @@ import {
   ClockIcon,
 } from "@heroicons/react/outline";
 
-import {
-  getDetailPost,
-  likePost,
-  savePost,
-} from "../../redux/actions/boards";
+import { getDetailPost, likePost, savePost } from "../../redux/actions/boards";
 
 import PostDelete from "./PostDelete";
 
@@ -50,7 +46,7 @@ export default function PostDetail() {
       </div>
     );
 
-    /*
+  /*
   const procedures = JSON.parse(post_detail.procedure);
   const ingredients = JSON.parse(post_detail.ingredients);
 
@@ -70,46 +66,50 @@ export default function PostDetail() {
 
   return (
     <>
-
-        <article id="bo_v">
-            <div className="bo_v_innr">
-                <header className="bo_top_hd">
-                    <h2 id="bo_v_title">
-                        {post_detail.ca_name &&
-                        <span className="bo_v_cate">{post_detail.ca_name}</span> 
-                        }
-                        <span className="bo_v_tit">{post_detail.subject}</span>
-                    </h2>
-                    <div id="bo_v_info">
-                        <h2>페이지 정보</h2>
-                        <div className="profile_info">
-                            <div className="profile_img">프로필이미지는 나중에</div>
-                            <span className="sound_only">작성자</span><span dangerouslySetInnerHTML={{__html: post_detail.name}}></span>
-                            <span className="ip">아이피도 나중에</span>
-                            <span className="sound_only">조회</span><strong><i className="fa fa-eye" aria-hidden="true"></i> {post_detail.hit}회</strong>
-                            <span className="sound_only">작성일</span><span><i className="fa fa-calendar" aria-hidden="true"></i> {post_detail.wr_datetime}</span>
-                            <a href="#bo_vc" className="bo_vc_btn"><span className="sound_only">댓글</span><i className="far fa-comment-dots"></i> {post_detail.wr_comment}</a>
-                        </div>
-                    </div>
-                </header>
-                
-                <section id="bo_v_atc">
-                    <h2 id="bo_v_atc_title">본문</h2>
-                    
-
-
-                    
-                    <div id="bo_v_con">{post_detail.content}</div>
-
-                    
-
-                </section>
+      <article id="bo_v">
+        <div className="bo_v_innr">
+          <header className="bo_top_hd">
+            <h2 id="bo_v_title">
+              {post_detail.ca_name && (
+                <span className="bo_v_cate">{post_detail.ca_name}</span>
+              )}
+              <span className="bo_v_tit">{post_detail.subject}</span>
+            </h2>
+            <div id="bo_v_info">
+              <h2>페이지 정보</h2>
+              <div className="profile_info">
+                <div className="profile_img">프로필이미지는 나중에</div>
+                <span className="sound_only">작성자</span>
+                <span
+                  dangerouslySetInnerHTML={{ __html: post_detail.name }}
+                ></span>
+                <span className="ip">아이피도 나중에</span>
+                <span className="sound_only">조회</span>
+                <strong>
+                  <i className="fa fa-eye" aria-hidden="true"></i>{" "}
+                  {post_detail.hit}회
+                </strong>
+                <span className="sound_only">작성일</span>
+                <span>
+                  <i className="fa fa-calendar" aria-hidden="true"></i>{" "}
+                  {post_detail.wr_datetime}
+                </span>
+                <a href="#bo_vc" className="bo_vc_btn">
+                  <span className="sound_only">댓글</span>
+                  <i className="far fa-comment-dots"></i>{" "}
+                  {post_detail.wr_comment}
+                </a>
+              </div>
             </div>
-            
+          </header>
 
-        </article>
+          <section id="bo_v_atc">
+            <h2 id="bo_v_atc_title">본문</h2>
 
-
+            <div id="bo_v_con">{post_detail.content}</div>
+          </section>
+        </div>
+      </article>
     </>
   );
 }

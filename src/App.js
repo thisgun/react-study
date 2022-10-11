@@ -1,5 +1,5 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/layouts/Header";
@@ -21,41 +21,37 @@ import "./components/layouts/layout.css";
 
 const App = () => {
   return (
-    <React.Fragment>
-        <Header title="My header" subtitle="subtitle2" />
-        <div id="content-wrapper">
-            <div id="wrapper">
+    <Router basename={process.env.PUBLIC_URL}>
+      <Header title="My header" subtitle="subtitle2" />
+      <div id="content-wrapper">
+        <div id="wrapper">
+          <div id="container">
+            <div className="conle">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route exact path="/register" element={<Register />} />
+                <Route exact path="/login" element={<Login />} />
 
-                <div id="container">
-                    <div className="conle">
+                <Route exact path="/board/:id" element={<Boards />} />
 
-                    <Routes>
-                        <Route path="/" element={<Home/>}/>
-                        <Route exact path="/register" element={<Register />} />
-                        <Route exact path="/login" element={<Login />} />
-
-                        <Route exact path="/board/:id" element={<Boards />} />
-
-                        <Route
-                          exact
-                          path="/post/:post_id"
-                          element={
-                            <WithPrivateRoute>
-                              <PostDetail />
-                            </WithPrivateRoute>
-                          }
-                        />
-
-                    </Routes>
-                    </div>
-                    <div className="conri">
-                    </div>
-                </div>
-                <Footer note="Footer Note" />
-             </div>
+                <Route
+                  exact
+                  path="/post/:post_id"
+                  element={
+                    <WithPrivateRoute>
+                      <PostDetail />
+                    </WithPrivateRoute>
+                  }
+                />
+              </Routes>
+            </div>
+            <div className="conri"></div>
+          </div>
+          <Footer note="Footer Note" />
         </div>
-        <ErrorDiv />
-    </React.Fragment>
-  )
-}
-export default App
+      </div>
+      <ErrorDiv />
+    </Router>
+  );
+};
+export default App;

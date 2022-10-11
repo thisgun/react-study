@@ -1,5 +1,5 @@
 import { useState } from "react";
-import parse, { domToReact } from 'html-react-parser';
+import parse, { domToReact } from "html-react-parser";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { HeartIcon, BookmarkIcon } from "@heroicons/react/outline";
@@ -9,51 +9,57 @@ import UserSideview from "../layouts/UserSideview";
 import QuickView from "./QuickView";
 
 export default function BoardCard({ boards, quickview }) {
-
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(null);
 
   const dispatch = useDispatch();
 
-    let count = boards.count;
-    let next = boards.next;
-    let previous = boards.previous;
-    let board = boards.results.board;
-    let posts = boards.results.post;
+  let count = boards.count;
+  let next = boards.next;
+  let previous = boards.previous;
+  let board = boards.results.board;
+  let posts = boards.results.post;
 
   return (
     <>
       <form name="fboardlist" id="fboardlist" method="post">
-		<input type="hidden" name="bo_table" value={board.bo_table} />
-		<input type="hidden" name="sfl" value="" />
-		<input type="hidden" name="stx" value="" />
-		<input type="hidden" name="spt" value="" />
-		<input type="hidden" name="sst" value="" />
-		<input type="hidden" name="sod" value="" />
-		<input type="hidden" name="page" value="" />
-		<input type="hidden" name="sw" value="" />
+        <input type="hidden" name="bo_table" value={board.bo_table} />
+        <input type="hidden" name="sfl" value="" />
+        <input type="hidden" name="stx" value="" />
+        <input type="hidden" name="spt" value="" />
+        <input type="hidden" name="sst" value="" />
+        <input type="hidden" name="sod" value="" />
+        <input type="hidden" name="page" value="" />
+        <input type="hidden" name="sw" value="" />
       </form>
 
       <div id="bo_li_01" className="list_03">
-          <ul>
+        <ul>
           {posts.map((post) => (
             <li>
-                <Link to={`/post/${post.id}`}>
+              <Link to={`/post/${post.id}`}>
                 <div className="tit cnt_left bo_subject">{post.subject}</div>
-                </Link>
-                <div className="wri cnt_left bo_info">
+              </Link>
+              <div className="wri cnt_left bo_info">
                 {/*<span className="sound_only">작성자</span><span className="bo_guest" dangerouslySetInnerHTML={{__html: post.name}}></span> */}
-                <span className="sound_only">작성자</span><UserSideview datas={post.sideview_data} name={post.name} />
-                </div>
-                <div className="view cnt_left">
-                    <span className="sound_only">조회</span><span className="bo_view"><i className="far fa-eye"></i> {post.wr_hit}</span>
-                </div>
-                <div className="date cnt_left">
-                    <span className="sound_only">날짜</span><span className="bo_date"><i className="far fa-clock"></i> {post.datetime2}</span>
-                </div>
+                <span className="sound_only">작성자</span>
+                <UserSideview datas={post.sideview_data} name={post.name} />
+              </div>
+              <div className="view cnt_left">
+                <span className="sound_only">조회</span>
+                <span className="bo_view">
+                  <i className="far fa-eye"></i> {post.wr_hit}
+                </span>
+              </div>
+              <div className="date cnt_left">
+                <span className="sound_only">날짜</span>
+                <span className="bo_date">
+                  <i className="far fa-clock"></i> {post.datetime2}
+                </span>
+              </div>
             </li>
-            ))}
-          </ul>
+          ))}
+        </ul>
       </div>
 
       {/* Pagination */}

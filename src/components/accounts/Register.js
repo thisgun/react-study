@@ -32,8 +32,8 @@ export default function Register() {
         password: password,
         confirmPassword: confirmPassword,
         profile: {
-            nickname: nickname
-        }
+          nickname: nickname,
+        },
       })
     );
   };

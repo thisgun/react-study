@@ -9,18 +9,17 @@ import BoardCard from "./BoardCard";
 
 export default function Boards() {
   const dispatch = useDispatch();
-  const { boards, is_loading } = useSelector(state => state.boards);
+  const { boards, is_loading } = useSelector((state) => state.boards);
 
   const { id } = useParams();
-    
+
   useEffect(() => {
     dispatch(getBoards(id));
 
-    console.log("aaa" + id );
-
+    console.log("aaa" + id);
   }, []);
 
-console.log(boards);
+  console.log(boards);
 
   if (!boards || boards.length === 0)
     return (
@@ -31,14 +30,13 @@ console.log(boards);
       </div>
     );
 
-    return (
+  return (
     <>
-        <div id="bo_list">
-            <div className="bo_list_innr">
-                <BoardCard boards={boards} quickview={true} />
-            </div>
+      <div id="bo_list">
+        <div className="bo_list_innr">
+          <BoardCard boards={boards} quickview={true} />
         </div>
+      </div>
     </>
-    );
-
+  );
 }

@@ -23,7 +23,7 @@ export default function ErrorDiv() {
     cook_time: "Board Cook Time",
   });
 
-console.log( msg, isOpen );
+  console.log(msg, isOpen);
 
   return (
     <>
