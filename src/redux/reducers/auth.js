@@ -8,7 +8,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  token: JSON.parse(localStorage.getItem("gnupy")),
+  token: JSON.parse(localStorage.getItem("persist:root")),
   isAuthenticated: null,
   isLoading: false,
   user: null,
@@ -18,7 +18,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      localStorage.setItem("gnupy", JSON.stringify(action.payload.tokens));
+      localStorage.setItem("persist:root", JSON.stringify(action.payload.tokens));
       return {
         ...state,
         ...action.payload,
@@ -29,7 +29,7 @@ export default function (state = initialState, action) {
     case LOGIN_FAIL:
     case LOGOUT_SUCCESS:
     case REGISTER_FAIL:
-      localStorage.removeItem("gnupy");
+      localStorage.removeItem("persist:root");
       return {
         ...state,
         token: null,
