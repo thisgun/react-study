@@ -4,7 +4,7 @@ const axiosInstance = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
       ? "https://thisgun-test-1.herokuapp.com"
-      : "",
+      : "http://127.0.0.1:8000",
   timeout: 5000,
 });
 

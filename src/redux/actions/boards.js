@@ -22,13 +22,12 @@ export const getBoards = (id) => (dispatch, getState) => {
     },
   };
 
-  console.log( "aaabbbb" + id );
+  console.log("aaabbbb" + id);
 
   axiosInstance
     .get(`/api/board/${id}`, null, config)
     .then((res) => {
-
-      console.log( res );
+      console.log(res);
 
       dispatch({
         type: GET_BOARDS,
@@ -36,8 +35,7 @@ export const getBoards = (id) => (dispatch, getState) => {
       });
     })
     .catch((err) => {
-
-        console.log( err );
+      console.log(err);
 
       dispatch({
         type: GET_ERRORS,
@@ -52,7 +50,6 @@ export const getDetailPost = (post_id) => (dispatch, getState) => {
   axiosInstance
     .get(`/api/post/${post_id}`, tokenConfig(getState))
     .then((res) => {
-
       console.log(GET_DETAIL_POST);
 
       dispatch({
