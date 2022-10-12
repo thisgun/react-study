@@ -99,6 +99,8 @@ export const logout =
   (dispatch, getState) => {
     const body = JSON.stringify({ refresh });
 
+console.log( body );
+
     axiosInstance
       .post("/api/user/logout/", body, tokenConfig(getState))
       .then((res) => {
