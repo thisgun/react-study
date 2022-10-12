@@ -13,16 +13,15 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async (error) => {
-    return Promise.reject(error);
-    /*
+    //return Promise.reject(error);
+
     const originalRequest = error.config;
 
-    console.log('ori', originalRequest.url );
+    console.log("ori", originalRequest.url);
 
     if (
       error.response.status === 401 &&
-      originalRequest.url ===
-        "/api/user/token/refresh/"
+      originalRequest.url === "/api/user/token/refresh/"
     ) {
       window.location.href = "/login/";
       return Promise.reject(error);
@@ -34,28 +33,27 @@ axiosInstance.interceptors.response.use(
       !originalRequest._retry
     ) {
       originalRequest._retry = true;
-      const refreshToken = JSON.parse(localStorage.getItem("persist:root")).refresh;
+      const refreshToken = JSON.parse(localStorage.getItem("gnupy")).refresh;
 
       return axiosInstance
         .post("/api/user/token/refresh/", {
           refresh: refreshToken,
         })
         .then((response) => {
-          localStorage.setItem("persist:root", JSON.stringify(response.data));
+          localStorage.setItem("gnupy", JSON.stringify(response.data));
 
           axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${
-            JSON.parse(localStorage.getItem("persist:root")).access
+            JSON.parse(localStorage.getItem("gnupy")).access
           }`;
 
           originalRequest.headers["Authorization"] = `Bearer ${
-            JSON.parse(localStorage.getItem("persist:root")).access
+            JSON.parse(localStorage.getItem("gnupy")).access
           }`;
 
           return axiosInstance(originalRequest);
         });
     }
     return Promise.reject(error);
-    */
   }
 );
 

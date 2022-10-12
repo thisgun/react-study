@@ -11,6 +11,7 @@ const persistConfig = {
   key: "root",
   //local storage에 저장
   storage: storage,
+  blacklist: ["auth", "user"],
 };
 
 // https://redux-advanced.vlpt.us/2/01.html

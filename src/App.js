@@ -34,15 +34,7 @@ const App = () => {
 
                 <Route exact path="/board/:id" element={<Boards />} />
 
-                <Route
-                  exact
-                  path="/post/:post_id"
-                  element={
-                    <WithPrivateRoute>
-                      <PostDetail />
-                    </WithPrivateRoute>
-                  }
-                />
+                <Route exact path="/post/:post_id" element={<PostDetail />} />
               </Routes>
             </div>
             <div className="conri"></div>

@@ -20,7 +20,7 @@ export default function Logout({ modal, setModal }) {
   const handleLogoutClick = () => {
     dispatch(
       logout({
-        refresh: JSON.parse(localStorage.getItem("persist:root")).refresh,
+        refresh: JSON.parse(localStorage.getItem("gnupy")).refresh,
       })
     );
   };
